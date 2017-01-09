@@ -16,12 +16,19 @@ def all_odd(numbers):
         >>> all_odd([2, -6, 8])
         []
     """
-    odd_numbers = []
-    for number in numbers:
-        if number % 2 == 1:
-            odd_numbers.append(number)
 
-    return odd_numbers
+# Original code version
+
+    # odd_numbers = []
+    # for number in numbers:
+    #     if number % 2 == 1:
+    #         odd_numbers.append(number)
+
+    # return odd_numbers
+
+# New version with list comprehension
+
+    return [number for number in numbers if number % 2 == 1]
 
 
 def print_indices(items):
@@ -50,10 +57,8 @@ def print_indices(items):
 
     """
 
-    for index, elem in enumerate(items):
-        print index, elem
-
-# Case two failing
+    for index, item in enumerate(items):
+        print index, item
 
 
 def foods_in_common(foods1, foods2):
@@ -106,11 +111,15 @@ def every_other_item(items):
        ['you', 'are', 'good', 'at', 'code']
     """
 
-    alternate_items = []
-    for item in items:
-        alternate_items = items[::2]
+# Original code
+    # alternate_items = []
+    # for item in items:
+    #     alternate_items = items[::2]
 
-    return alternate_items
+    # return alternate_items
+
+# Rewritten for brevity
+    return items[::2]
 
 
 def largest_n_items(items, n):
@@ -143,6 +152,9 @@ def largest_n_items(items, n):
 
     return largest
 
+# Should be a way to compress, but when I run this line:
+# return [items[-n:] for item in sorted(items) if n > 0]
+# it returns the last values before the list has been sorted
 
 #####################################################################
 # END OF ASSESSMENT: You can ignore everything below.
